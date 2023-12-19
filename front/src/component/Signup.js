@@ -27,10 +27,8 @@ export default function Signup() {
      alert('password and confirm password must be same')
      return;
    }
-   // console.log(data);
    
    const res = await axios.post('http://localhost:3001/signup',data)
-   // console.log(res.data)
    if (res.data==="user alredy exsist"){
      alert(`usr alredy exsist please change name:${data.name} or email:${data.email}`);
      return;
