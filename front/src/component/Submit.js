@@ -22,10 +22,7 @@ export default function Submit(props) {
      JD:jd
   }
 try{
- // const res = 
  axios.put(`http://localhost:3001/update${i}`, upd)
-
- // console.log(res)
  navigate("/")
 }
 catch (error){
@@ -57,15 +54,11 @@ catch (error){
       content:content
     };
   
-    // console.log(user);
-  
     try {
       const res = await axios.post(`http://localhost:3001/create`, user,{
         headers:{
           'Content-Type': 'multipart/form-data'
         }})
-      // console.log(res,res.status,res.statusText,res.data.message);
-        // console.log(res.data.warn);
         if(res.data.warn==="same"){
           alert("Employee id or name cannot be same kindly change ths")
           return;
