@@ -8,7 +8,6 @@ export default function Update(){
     const id=params.get('id');
   const [name, setname] = useState(params.get('name'));
   const [jd, setjd] = useState(params.get('jd'));
-  // console.log(id,name,jd)
    const [data, update] = useState([]);
    const [state,setstate]=useState();
    useEffect(() => {
@@ -18,11 +17,9 @@ export default function Update(){
      }, []);
      const token = localStorage.getItem("token")
      axios.post('http://localhost:3001/verified', {token}).then(res => {
-         // console.log(res,res.data.result.is.email)
          const e=res.data.result.is.email
            setstate(e)
        })
-       // console.log(arr.map(dta=>dta.id))
      const arr= data.filter(o => o.u_m === state)
      const all = arr.map(dta=>dta.id)
    const navigate = useNavigate()
@@ -31,24 +28,18 @@ export default function Update(){
        const id = e.target.elements.id.value;
        const name = e.target.elements.name.value;
        const jd = e.target.elements.jd.value;
-      //  console.log(id,name,jd)
        const upd ={
           id:id,
           name:name,
           JD:jd
        }
        const find_id = all.findIndex(a=>a===id)
-        console.log(find_id)
-       //     console.log(del_id);
        if(find_id===-1){
            alert("this id record doesnot belongs to you")
            return;
        }
        try{
-          // const res = 
           await axios.put(`http://localhost:3001/update${id}`, upd)
-  
-          // console.log(res)
           alert("Data updated succesful.")
           navigate("/")
        }
