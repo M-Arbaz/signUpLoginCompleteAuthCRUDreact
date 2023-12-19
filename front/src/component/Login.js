@@ -11,7 +11,6 @@ export default function Login() {
             pass: e.target.elements.pass.value
         }
             const res = await axios.post('http://localhost:3001/login', data);
-            // console.log(res.data)
             const token = res.data.token;
             if (!token) {
                 alert('email or password is wrong conot generate token');
