@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+*{font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+
+.navbar{
+    width: 100%;
+    background-color: rgba(19, 19, 19, 0.342);
+    position:absolute;
+    z-index: 3;
+    top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar a{
+  text-decoration: none;
+ 
+  color: white;
+  font-weight: bold;
+}
+.lnk,.lnk button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
+  padding: 10px;
+}
+
+.lnk:hover,.lnk button:hover{
+  background-color: #2b6bef;
+}
+.lnk:hover a{
+  color: #fff;
+}
+.con{
+    background-color: rgb(218, 217, 217);
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+.crd{
+    color: #fff;
+    text-align: center;
+    padding: 4%;
+    flex-basis: 30%;
+    height: 70vh;
+}
+.crd:nth-child(1){
+    background-color:#2b6bef;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.crd p::first-line{
+    color: rgba(46, 226, 202, 0.938);
+}
+.crd>form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+.crd:nth-child(2){
+    background-image: url('https://shooliniuniversity.com/blog/wp-content/uploads/2023/03/BTech-Mechanical-Engineering-Robotics-AI.png');
+background-color: rgba(3, 3, 3, 0.4);
+background-attachment: fixed;
+background-position-x:right;
+background-blend-mode: color;
+}
+.crd>form input,.btn{
+    background-color: rgba(3, 3, 3, 0.567);
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 10px;
+    margin: 10px;
+}
+.s_in{
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #1c8ef9c7;
+}
+.f_in{
+    color: white;
+    width: 45%;
+    padding: 4% ;
+    text-align: center;
+    background-image: url('https://image.slidesdocs.com/responsive-images/background/blue-of-sika-deer-in-the-moon-clouds-powerpoint-background_01cee1db8a__960_540.jpg');
+    background-color: #1a1a1a8f;
+    background-blend-mode: color;
+    min-height: 60vh;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+.f_in:hover{
+    box-shadow: 10px 15px 15px black;
+}
+.f_in>form{
+    display: flex;
+    flex-direction: column;
+}
+.f_in>form input,.btn{
+    color: white;
+    background-color: rgba(3, 3, 3, 0.4);
+    outline: none;
+    padding: 10px;
+    margin: 10px;
+}
+.f_in a{
+    color: white;
+    text-decoration: none;
+    margin: 5px;
+    padding: 7px;
+}
+.f_in a:hover{
+    background-color: #fff;
+    color: black;
+}
+.fl>p{
+    font-size: 20px;
+    position: absolute;
+    top: 20%;
+}
+/* home page code pen */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:wght@100&family=Recursive:wght@300&family=Righteous&family=Roboto:wght@100&family=Young+Serif&display=swap');
+body{
+    font-family: 'Great Vibes', cursive;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Recursive', sans-serif;
+    font-family: 'Righteous', cursive;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Young Serif', serif;
+
+    background: url(./img/pexels-life-of-pix-7919.jpg) no-repeat, center center;
+    background-size:cover;
+    background-attachment: fixed;
+    background-position-x: 90%;
+    background-position-y:15%;
+}   
+h1{
+    position: absolute;
+    left:50px;
+    top:10px;
+    word-spacing: -5px;
+    font-size: 60px;
+    text-shadow: 1px 1px 1px lightblue;
+}
+nav{
+    overflow: hidden;
+
+    color:black;
+}
+nav ul{
+    margin:0;
+    padding: 0;
+}
+nav a{
+    float: right;
+    text-align: center;
+    padding: 7px;
+    text-decoration: none;
+    color: inherit;
+}
+#left{
+    float:left;
+}
+nav a:hover{
+    background-color: black;
+    color:lightblue;
+}
+li a{
+    display: block;
+
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    border: solid black;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 50px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: -20px;
+    box-shadow: 1px 1px 1px black;
+}
+li a:hover{
+    background-color: black;
+    color:pink;
+    box-shadow: 2px 2px 1px #8d8d8d;
+}
+#content{
+    position: fixed;
+    left:10px;
+    top:150px;
+    padding-top: 100px;
+}
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+}
+.fade-in-2{
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 4s;
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+    padding-left: 10px;
+    color:white;
+    font-size: 17px;
+    text-shadow: 3px 3px 1px black;
+}
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+table{
+    background-color: #ffffff85;
+   padding: 10px;
+    width: 100%;
+    height: 100% !important;
+}
+
+.m_t{
+    text-align: center;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+
+}
+.m_t>table th,.m_t>table td {
+    margin: 2vh;
+    padding:5vh;
+}
+.i_t{
+    border-radius: 25px 0px 25px 0px;
+    width: 90%;
+    max-height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+}
+thead{
+    position:sticky;
+    top:0px;
+}
+thead .tr>th{
+    padding: 10px;
+    background-color: #ffffffaf;
+}
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(11, 24, 16, 0.74); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7cff99b4; 
+  }
+table img{
+    width: 100px;
+    height: 100px;
+    margin: 1vh;
+    object-fit:fill;
+    border-radius: 50%;
+}
+table a, .lk{
+    border: none;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  margin: 5px;
+    padding: 7px;
+    background-color: #ffffff9d;
+}
+ .lk:hover{
+    color: rgb(219, 213, 213);
+    background-color: #16151596;
+}
+.load{
+    width: 100%;
+height: 100vh;
+display: grid;
+place-items: center;
+}
+.sout{
+    background-color: #d1d1d165;
+    position: absolute;
+}
+.load img{
+    width: 400px;
+    height: 150px;
+}
