@@ -82,7 +82,6 @@ app.post('/signup', (req, res) => {
     pass: pass
   })
   model.find().then(usr => {
-    //    console.log(typeof(usr),"usr",usr)
     const alredy = usr.find(b => b.name === data.name || b.email === data.email)
     console.log(alredy)
     if (alredy) {
@@ -95,12 +94,6 @@ app.post('/signup', (req, res) => {
   }).catch(error => {
     console.log(error)
   })
-  // if(data.name==="Arbaz"){
-  //     res.send('you enter same name')
-  //     return;
-  // }
-  // data.save()
-  // res.json({message:'data added succesful',data:data})
 })
 app.post('/login', (req, res) => {
   const { email, pass } = req.body;
@@ -108,7 +101,6 @@ app.post('/login', (req, res) => {
     email: email,
     pass: pass
   }
-  // console.log(is.email,is.pass)
   model.find().then(usr => {
     const is_usr = usr.find(b => b.email === is.email && b.pass === is.pass)
     if (!is_usr) {
@@ -116,7 +108,6 @@ app.post('/login', (req, res) => {
       return;
     }
     const token = jwt.sign({ is }, key)
-    // console.log(token)
     res.json({ token })
   }).catch(error => {
     console.log(error);
@@ -125,20 +116,16 @@ app.post('/login', (req, res) => {
 app.post('/verified', (req, res) => {
 
   const token = req.body.token;
-  // console.log(req,token)
   jwt.verify(token, key, (err, result) => {
-    // console.log(token)
     if (err) {
       console.log("token is not valid", err)
       res.json({ message: "token is not valid" });
       return;
     }
-    //   console.log(result)
     res.json({ message: "succesful", result: result });
   });
 });
 app.get('/super', (req, res) => {
-  // console.log(model)
   model.find().then(usr => {
     res.json({ message: 'record', persons: usr })
   }).catch(error => {
@@ -153,8 +140,6 @@ app.post("/create", upload.single(key), async (req, res) => {
       id: id, name: name, JD: JD, u_m: u_m, a_id: a_id,
       file: `http://localhost:3001/data/${req.file.filename}`
     });
-    // console.log(data.a_id)
-    // console.log("i am file",req.file.filename,req.body)
 
     student.find().then(frnd => {
       const alredy = frnd.find(frnd => frnd.id === data.id || frnd.name === data.name);
@@ -170,13 +155,6 @@ app.post("/create", upload.single(key), async (req, res) => {
     }).catch(error => {
       console.log(error)
     })
-    // const a = await collection.find().toArray();
-
-    // const alredy_f = a.find(frnd => frnd.id === data.id || frnd.name === data.name);
-
-
-    // collection.insertOne(data);
-    // console.log(typeof(data.name),typeof(data.id))
 
   } catch (error) {
     console.log("failed to upload data", error);
@@ -185,17 +163,12 @@ app.post("/create", upload.single(key), async (req, res) => {
 })
 app.put('/update:id', async (req, res) => {
   try {
-    // const a = await collection.find().toArray();
-    // const update= req.body;
+
     const i = req.params.id;
     console.log(typeof (i), i);
     const { name, JD } = req.body;
-    // console.log(a[0].name) 
+
     await student.updateOne({ id: i }, { $set: { name, JD } })
-
-    // console.log(collection.updateOne({id:1},{$set:{name:"ipsum"}}))
-
-    // console.log("i am req.body",req.body)
     res.json({ message: "data updated succesful" })
   }
   catch (error) {
@@ -209,22 +182,16 @@ app.delete('/delete:id', async (req, res) => {
     console.log(i)
     student.find().then(async d => {
       const f_index = d.findIndex((fr) => fr.id == i);
-      // console.log(d)
-      console.log(i,f_index)
-      console.log(d[f_index])
+
       if (f_index >= 0) {
         fs.unlinkSync(`./uploads/${path.basename(d[f_index].file)}`)
         await student.deleteOne({ id: i })
-        console.log('delete')
         res.json({ message: 'Deleted successfully', data: d[f_index] })
         return;
       } else {
         res.send("alredy deleted")
       }
     })
-    // const a = await collection.find().toArray();
-
-
   } catch (error) {
     console.log(error);
     res.send("Couldn't delete");
@@ -232,10 +199,6 @@ app.delete('/delete:id', async (req, res) => {
 });
 app.get('/read', async (req, res) => {
   try {
-
-    // const a = await collection.find().toArray();
-    // // console.log("client", client, "db", db, "collection", collection, "a", a)
-    // console.log(typeof (a))
     student.find().then(
       a => {
         console.log(a)
